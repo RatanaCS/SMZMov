@@ -6,6 +6,10 @@ import android.os.Bundle
 import android.os.Handler
 import com.sumuzu.sumuzumovie.onboarding.OnboardingOneActivity
 
+/*
+    ini adalah activity pertama yg akan di run
+ */
+
 class SplashScreenActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -18,6 +22,6 @@ class SplashScreenActivity : AppCompatActivity() {
                 OnboardingOneActivity::class.java)
             startActivity(intent)
             finish()
-        }, 2000)
+        }, 1500)
     }
 }
