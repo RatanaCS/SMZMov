@@ -3,12 +3,12 @@ ini adalah project app movie tiket
 cara membuild app mulai dari layout sampai koding dengan Kotlin
 
 ## Fiture
-*Splash Screen
-*OnBoarding Screen
-*Sign In Screen
-*Sign Up Screen & Upload user Photo
-*Home Screen
-*Tiket Screen
+1. Splash Screen
+2. OnBoarding Screen
+3. Sign In Screen
+4. Sign Up Screen & Upload user Photo
+5. Home Screen
+6. Tiket Screen
 dll
 
 ## Source
