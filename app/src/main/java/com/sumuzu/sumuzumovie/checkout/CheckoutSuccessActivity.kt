@@ -6,6 +6,7 @@ import android.os.Bundle
 import com.sumuzu.sumuzumovie.R
 import com.sumuzu.sumuzumovie.home.HomeActivity
 import com.sumuzu.sumuzumovie.home.tiket.TiketActivity
+import com.sumuzu.sumuzumovie.home.tiket.TiketFragment
 import kotlinx.android.synthetic.main.activity_checkout_success.*
 
 class CheckoutSuccessActivity : AppCompatActivity() {
@@ -18,7 +19,7 @@ class CheckoutSuccessActivity : AppCompatActivity() {
             finishAffinity()
 
             val intent = Intent(this@CheckoutSuccessActivity,
-                HomeActivity::class.java)
+                HomeActivity::class.java).putExtra("index","1")
             startActivity(intent)
         }
 
@@ -26,12 +27,8 @@ class CheckoutSuccessActivity : AppCompatActivity() {
             finishAffinity()
 
             val intent = Intent(this@CheckoutSuccessActivity,
-                HomeActivity::class.java)
-
+                HomeActivity::class.java).putExtra("index","2")
             startActivity(intent)
-
-
-
         }
 
     }

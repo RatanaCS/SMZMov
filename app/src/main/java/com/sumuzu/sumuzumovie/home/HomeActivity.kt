@@ -3,6 +3,7 @@ package com.sumuzu.sumuzumovie.home
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.sumuzu.sumuzumovie.R
 import com.sumuzu.sumuzumovie.home.dashboard.DashBoardFragment
@@ -19,7 +20,27 @@ class HomeActivity : AppCompatActivity() {
         val fragmentSetting = SettingFragment()
         val fragmentHome = DashBoardFragment()
 
-        setFragment(fragmentHome)
+//        setFragment(fragmentHome)
+
+        var index = intent.getStringExtra("index")
+//        Toast.makeText(this@HomeActivity, index, Toast.LENGTH_LONG).show()
+
+        if(index == "1"){
+            setFragment(fragmentHome)
+            changeIcon(iv_menu1, R.drawable.ic_home_active)
+            changeIcon(iv_menu2, R.drawable.ic_tiket)
+            changeIcon(iv_menu3, R.drawable.ic_profile)
+        }else if(index == "2"){
+            setFragment(fragmentTiket)
+            changeIcon(iv_menu1, R.drawable.ic_home)
+            changeIcon(iv_menu2, R.drawable.ic_tiket_active)
+            changeIcon(iv_menu3, R.drawable.ic_profile)
+        }else if(index == "3"){
+            setFragment(fragmentSetting)
+            changeIcon(iv_menu1, R.drawable.ic_home)
+            changeIcon(iv_menu2, R.drawable.ic_tiket)
+            changeIcon(iv_menu3, R.drawable.ic_profile_active)
+        }
 
         iv_menu1.setOnClickListener {
             setFragment(fragmentHome)

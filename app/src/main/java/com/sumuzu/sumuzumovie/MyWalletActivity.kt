@@ -1,19 +1,27 @@
 package com.sumuzu.sumuzumovie
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.TextView
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import com.sumuzu.sumuzumovie.home.HomeActivity
 import com.sumuzu.sumuzumovie.utils.Preferences
+import kotlinx.android.synthetic.main.activity_my_wallet.*
+import java.text.NumberFormat
+import java.util.*
 
 class MyWalletActivity : AppCompatActivity() {
 
-//    lateinit var sUsername:String
-//    lateinit var sPassword:String
-//    lateinit var sNama:String
-//    lateinit var sEmail:String
-//
-//    private lateinit var mFirebaseDatabase: DatabaseReference
-//    private lateinit var mFirebaseInstance: FirebaseDatabase
-//    private lateinit var mDatabase: DatabaseReference
+    lateinit var sUsername:String
+    lateinit var sPassword:String
+    lateinit var sNama:String
+    lateinit var sEmail:String
+
+    private lateinit var mFirebaseDatabase: DatabaseReference
+    private lateinit var mFirebaseInstance: FirebaseDatabase
+    private lateinit var mDatabase: DatabaseReference
 
     private lateinit var preferences: Preferences
 
@@ -21,12 +29,23 @@ class MyWalletActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_my_wallet)
 
+
+
 //        mFirebaseInstance = FirebaseDatabase.getInstance()
 //        mDatabase = FirebaseDatabase.getInstance().getReference()
 //        mFirebaseDatabase = mFirebaseInstance.getReference("User")
 //
-//        preferences = Preferences(this)
-//
+        preferences = Preferences(this)
+        currecy(preferences.getValues("saldo")!!.toDouble(), tv_saldo)
+
+        iv_back.setOnClickListener {
+            finishAffinity()
+
+            val intent = Intent(this@MyWalletActivity,
+                HomeActivity::class.java).putExtra("index","3")
+            startActivity(intent)
+        }
+
 //        btn_home.setOnClickListener {
 //            sUsername = et_username.text.toString()
 //            sPassword = et_password.text.toString()
@@ -97,4 +116,12 @@ class MyWalletActivity : AppCompatActivity() {
 //            }
 //        })
     }
+
+    private fun currecy(harga:Double, textView: TextView) {
+        val localeID = Locale("in", "ID")
+        val formatRupiah = NumberFormat.getCurrencyInstance(localeID)
+        textView.setText(formatRupiah.format(harga as Double))
+
+    }
+
 }

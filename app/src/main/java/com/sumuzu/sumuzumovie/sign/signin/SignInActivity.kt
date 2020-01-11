@@ -31,7 +31,7 @@ class SignInActivity : AppCompatActivity() {
             finishAffinity()
 
             val intent = Intent(this@SignInActivity,
-                HomeActivity::class.java)
+                HomeActivity::class.java).putExtra("index","1")
             startActivity(intent)
         }
 
@@ -78,8 +78,12 @@ class SignInActivity : AppCompatActivity() {
 
                         finishAffinity()
 
+//                        val intent = Intent(this@SignInActivity,
+//                            HomeActivity::class.java)
+//                        startActivity(intent)
+
                         val intent = Intent(this@SignInActivity,
-                            HomeActivity::class.java)
+                            HomeActivity::class.java).putExtra("index","1")
                         startActivity(intent)
 
                     } else {

@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import androidx.core.app.ActivityCompat.finishAffinity
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
+import com.sumuzu.sumuzumovie.MyWalletActivity
 import com.sumuzu.sumuzumovie.R
 import com.sumuzu.sumuzumovie.sign.signin.SignInActivity
 import com.sumuzu.sumuzumovie.utils.Preferences
@@ -44,6 +45,12 @@ class SettingFragment : Fragment() {
             .load(preferences.getValues("url"))
             .apply(RequestOptions.circleCropTransform())
             .into(iv_profile)
+
+        tv_my_wallet.setOnClickListener {
+            val intent = Intent(context,
+                MyWalletActivity::class.java)
+            startActivity(intent)
+        }
 
         tv_sign_out.setOnClickListener {
 
