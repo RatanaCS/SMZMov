@@ -334,8 +334,12 @@ class PilihBangkuActivity : AppCompatActivity() {
         btn_home.setOnClickListener {
 
             val intent = Intent(this,
-                CheckoutActivity::class.java).putExtra("data", dataList)
+                CheckoutActivity::class.java)
+                .putExtra("data", dataList)
+                .putExtra("datas", data)
             startActivity(intent)
+
+
         }
 
 
